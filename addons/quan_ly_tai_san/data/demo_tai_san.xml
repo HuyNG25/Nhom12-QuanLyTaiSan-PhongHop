@@ -1,0 +1,98 @@
+<odoo>
+    <data noupdate="0">
+        <!-- Nhà Cung Cấp -->
+        <record id="ncc_phong_vu" model="nha_cung_cap">
+            <field name="ten_nha_cung_cap">Công ty Phong Vũ</field>
+            <field name="ten_nguoi_dai_dien">Nguyễn Văn Phong</field>
+            <field name="so_dien_thoai">18006868</field>
+            <field name="email">hotro@phongvu.vn</field>
+        </record>
+
+        <record id="ncc_fpt" model="nha_cung_cap">
+            <field name="ten_nha_cung_cap">FPT Shop</field>
+            <field name="ten_nguoi_dai_dien">Lê Thị FPT</field>
+            <field name="so_dien_thoai">18006601</field>
+            <field name="email">cskh@fptshop.com.vn</field>
+        </record>
+
+        <!-- Vị Trí -->
+        <record id="vt_kho" model="vi_tri">
+            <field name="ten_vi_tri">Kho Thiết Bị</field>
+        </record>
+
+        <record id="vt_phong_hop_vip" model="vi_tri">
+            <field name="ten_vi_tri">Phòng Họp VIP</field>
+        </record>
+
+        <record id="vt_ban_nv_a" model="vi_tri">
+            <field name="ten_vi_tri">Bàn làm việc - Nguyễn Văn A</field>
+        </record>
+
+        <!-- Loại Tài Sản -->
+        <record id="loai_ts_may_tinh" model="loai_tai_san">
+            <field name="ten_loai_tai_san">Máy tính &amp; Laptop</field>
+            <field name="ma_loai_tai_san">LTS-001</field>
+            <field name="mo_ta">Các thiết bị máy tính cá nhân</field>
+        </record>
+
+        <record id="loai_ts_thiet_bi_van_phong" model="loai_tai_san">
+            <field name="ten_loai_tai_san">Thiết bị văn phòng</field>
+            <field name="ma_loai_tai_san">LTS-002</field>
+            <field name="mo_ta">Máy chiếu, máy in, máy scan</field>
+        </record>
+        
+        <record id="loai_ts_noi_that" model="loai_tai_san">
+            <field name="ten_loai_tai_san">Nội thất</field>
+            <field name="ma_loai_tai_san">LTS-003</field>
+            <field name="mo_ta">Bàn, ghế, tủ hồ sơ</field>
+        </record>
+
+        <!-- Tài Sản -->
+        <record id="ts_laptop_dell" model="tai_san">
+            <field name="ten_tai_san">Laptop Dell XPS 13</field>
+            <field name="loai_tai_san_id" ref="loai_ts_may_tinh"/>
+            <field name="so_serial">DELL-XPS-001</field>
+            <field name="trang_thai">Muon</field>
+            <field name="gia_tien_mua">30000000</field>
+            <field name="ngay_mua">2024-01-10</field>
+            <field name="ngay_het_han_bao_hanh">2025-01-10</field>
+            <field name="vi_tri_hien_tai_id" ref="vt_ban_nv_a"/>
+            <field name="nha_cung_cap_id" ref="ncc_phong_vu"/>
+            <field name="nguoi_dang_dung_id" ref="nhan_su.nv_nguyen_van_a"/>
+        </record>
+
+        <record id="ts_macbook_pro" model="tai_san">
+            <field name="ten_tai_san">Macbook Pro M2</field>
+            <field name="loai_tai_san_id" ref="loai_ts_may_tinh"/>
+            <field name="so_serial">APPLE-M2-999</field>
+            <field name="trang_thai">LuuTru</field>
+            <field name="gia_tien_mua">45000000</field>
+            <field name="ngay_mua">2024-02-20</field>
+            <field name="ngay_het_han_bao_hanh">2025-02-20</field>
+            <field name="vi_tri_hien_tai_id" ref="vt_kho"/>
+            <field name="nha_cung_cap_id" ref="ncc_fpt"/>
+        </record>
+
+        <record id="ts_may_chieu_sony" model="tai_san">
+            <field name="ten_tai_san">Máy chiếu Sony VPL</field>
+            <field name="loai_tai_san_id" ref="loai_ts_thiet_bi_van_phong"/>
+            <field name="so_serial">SNY-PRJ-888</field>
+            <field name="trang_thai">LuuTru</field>
+            <field name="gia_tien_mua">15000000</field>
+            <field name="ngay_mua">2023-11-05</field>
+            <field name="vi_tri_hien_tai_id" ref="vt_phong_hop_vip"/>
+            <field name="nha_cung_cap_id" ref="ncc_phong_vu"/>
+        </record>
+        
+        <record id="ts_ban_hop" model="tai_san">
+            <field name="ten_tai_san">Bàn họp gỗ sồi cao cấp</field>
+            <field name="loai_tai_san_id" ref="loai_ts_noi_that"/>
+            <field name="so_serial">BAN-G-001</field>
+            <field name="trang_thai">LuuTru</field>
+            <field name="gia_tien_mua">5000000</field>
+            <field name="ngay_mua">2023-10-01</field>
+            <field name="vi_tri_hien_tai_id" ref="vt_phong_hop_vip"/>
+            <field name="nha_cung_cap_id" ref="ncc_fpt"/>
+        </record>
+    </data>
+</odoo>

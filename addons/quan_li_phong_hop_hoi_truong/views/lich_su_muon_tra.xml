@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <!-- Form View - Lịch sử Mượn Trả -->
+        <record id="view_lich_su_muon_tra_form" model="ir.ui.view">
+            <field name="name">lich_su_muon_tra_form</field>
+            <field name="model">lich_su_muon_tra</field>
+            <field name="arch" type="xml">
+                <form string="📜 Lịch Sử Mượn Trả">
+                    <sheet>
+                        <group col="2">
+                            <group>
+                                <separator string="🏷 Thông tin chung" colspan="2"/>
+                                <field name="ngay_su_dung"/>
+                                <field name="phong_id"/>
+                                <field name="tong_thoi_gian_su_dung"/>
+                            </group>
+                        </group>
+
+                        <group col="2">
+                            <separator string="📊 Chi Tiết Sử Dụng" colspan="2"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View - Lịch sử Mượn Trả -->
+        <record id="view_lich_su_muon_tra_tree" model="ir.ui.view">
+            <field name="name">lich_su_muon_tra_tree</field>
+            <field name="model">lich_su_muon_tra</field>
+            <field name="arch" type="xml">
+                <tree string="📜 Lịch Sử Mượn Trả" create="false">
+                    <field name="ngay_su_dung" string="📅 Ngày"/>
+                    <field name="phong_id" string="🏢 Phòng"/>
+                    <field name="tong_thoi_gian_su_dung" string="⏳ Tổng thời gian sử dụng"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record model="ir.ui.view" id="lich_su_muon_tra_search">
+            <field name="model">lich_su_muon_tra</field>
+            <field name="arch" type="xml">
+                <search string="🔍 Tìm kiếm Lịch Sử Mượn Trả">
+                    <field name="ngay_su_dung" string="📅 Ngày"/>
+                    <field name="phong_id" string="🏢 Phòng"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_lich_su_muon_tra" model="ir.actions.act_window">
+            <field name="name">📜 Lịch Sử Mượn Trả</field>
+            <field name="res_model">lich_su_muon_tra</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="lich_su_muon_tra_search"/>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_lich_su_muon_tra" name="📜 Lịch Sử Mượn Trả" action="action_lich_su_muon_tra"/>
+    </data>
+</odoo>

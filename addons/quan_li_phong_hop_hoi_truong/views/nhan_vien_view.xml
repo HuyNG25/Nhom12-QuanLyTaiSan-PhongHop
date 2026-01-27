@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_nhan_vien_form_inherit_booking" model="ir.ui.view">
+            <field name="name">nhan.vien.form.inherit.booking</field>
+            <field name="model">nhan_vien</field>
+            <field name="inherit_id" ref="nhan_su.view_nhan_vien_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Lịch sử đặt phòng">
+                        <field name="lich_su_dat_phong_ids">
+                            <tree>
+                                <field name="phong_id"/>
+                                <field name="thoi_gian_muon_du_kien"/>
+                                <field name="thoi_gian_tra_du_kien"/>
+                                <field name="trang_thai" widget="badge" 
+                                       decoration-success="trang_thai == 'đã_duyệt'"
+                                       decoration-warning="trang_thai == 'chờ_duyệt'"
+                                       decoration-danger="trang_thai == 'đang_sử_dụng'"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

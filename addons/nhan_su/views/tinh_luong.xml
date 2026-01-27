@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_tinh_luong_tree" model="ir.ui.view">
+            <field name="name">tinh_luong.tree</field>
+            <field name="model">tinh_luong</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ten_bang_luong"/>
+                    <field name="nhan_vien_id"/>
+                    <field name="thang"/>
+                    <field name="nam"/>
+                    <field name="tong_so_cong"/>
+                    <field name="luong_co_ban"/>
+                    <field name="thuong"/>
+                    <field name="tong_tien_phat"/>
+                    <field name="tien_tang_ca"/>
+                    <field name="tong_luong"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_tinh_luong_form" model="ir.ui.view">
+            <field name="name">tinh_luong.form</field>
+            <field name="model">tinh_luong</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="trang_thai" widget="statusbar" statusbar_visible="draft,confirmed,paid"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Thông tin nhân viên">
+                                <field name="nhan_vien_id"/>
+                                <field name="thang"/>
+                                <field name="nam"/>
+                            </group>
+                            <group string="Lương cơ bản">
+                                <field name="luong_co_ban"/>
+                                <field name="luong_ngay"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Số công và Tăng ca">
+                                <field name="tong_so_cong"/>
+                                <field name="tong_gio_tang_ca"/>
+                                <field name="tien_tang_ca"/>
+                            </group>
+                            <group string="Thưởng / Phạt">
+                                <field name="thuong"/>
+                                <field name="tong_tien_phat"/>
+                                <field name="phat_bo_sung"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="tong_luong" class="oe_highlight"/>
+                        </group>
+                        <group>
+                            <field name="ghi_chu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_tinh_luong" model="ir.actions.act_window">
+            <field name="name">Tính lương</field>
+            <field name="res_model">tinh_luong</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

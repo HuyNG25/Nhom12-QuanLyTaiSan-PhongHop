@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Cron Job: Quét bảo hành (Chạy hàng ngày) -->
+        <record id="ir_cron_canh_bao_bao_hanh" model="ir.cron">
+            <field name="name">Cảnh báo hết hạn bảo hành</field>
+            <field name="model_id" ref="model_tai_san"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_canh_bao_bao_hanh()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!-- Cron Job: Quét quá hạn mượn (Chạy hàng ngày) -->
+        <record id="ir_cron_canh_bao_qua_han" model="ir.cron">
+            <field name="name">Cảnh báo quá hạn mượn</field>
+            <field name="model_id" ref="model_phieu_muon"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_canh_bao_qua_han()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!-- Email Template: Hết hạn bảo hành -->
+        <record id="email_template_canh_bao_bao_hanh" model="mail.template">
+            <field name="name">Cảnh báo hết hạn bảo hành</field>
+            <field name="model_id" ref="model_tai_san"/>
+            <field name="subject">Cảnh báo: Tài sản {{ object.ten_tai_san }} sắp hết hạn bảo hành</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="email_to">{{ object.quan_ly_id.work_email }}</field>
+            <field name="body_html" type="html">
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                    <p>Xin chào <t t-out="object.quan_ly_id.name"/>,</p>
+                    <p>Hệ thống tự động thông báo: Tài sản <strong><t t-out="object.ten_tai_san"/></strong> (Mã: <t t-out="object.ma_tai_san"/>) sẽ hết hạn bảo hành vào ngày <strong><t t-out="object.ngay_het_han_bao_hanh"/></strong>.</p>
+                    <p>Vui lòng kiểm tra và lên kế hoạch bảo trì nếu cần thiết.</p>
+                    <p>Trân trọng,<br/>Hệ thống Quản lý Tài sản</p>
+                </div>
+            </field>
+        </record>
+
+         <!-- Email Template: Quá hạn mượn -->
+        <record id="email_template_canh_bao_qua_han" model="mail.template">
+            <field name="name">Cảnh báo quá hạn trả tài sản</field>
+            <field name="model_id" ref="model_phieu_muon"/>
+            <field name="subject">Nhắc nhở: Quá hạn trả tài sản (Phiếu {{ object.ma_phieu_muon }})</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="email_to">{{ object.nhan_vien_id.work_email }}</field>
+            <field name="body_html" type="html">
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                    <p>Xin chào <t t-out="object.nhan_vien_id.name"/>,</p>
+                    <p>Bạn có phiếu mượn <strong><t t-out="object.ma_phieu_muon"/></strong> đã quá hạn trả theo dự kiến (Ngày trả: <t t-out="object.ngay_tra_du_kien"/>).</p>
+                    <p>Danh sách tài sản đang mượn:</p>
+                    <ul>
+                        <t t-foreach="object.chi_tiet_ids" t-as="line">
+                            <li t-if="line.trang_thai == 'dang_muon'">
+                                <t t-out="line.tai_san_id.ten_tai_san"/> (<t t-out="line.tai_san_id.ma_tai_san"/>)
+                            </li>
+                        </t>
+                    </ul>
+                    <p>Vui lòng sắp xếp trả tài sản hoặc gia hạn phiếu mượn sớm nhất có thể.</p>
+                    <p>Trân trọng,<br/>Hệ thống Quản lý Tài sản</p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

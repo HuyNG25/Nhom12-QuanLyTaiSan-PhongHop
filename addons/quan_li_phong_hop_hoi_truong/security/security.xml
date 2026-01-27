@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="module_category_quan_ly_phong_hop" model="ir.module.category">
+            <field name="name">Quản lý Phòng họp &amp; Hội trường</field>
+            <field name="description">Quản lý đặt phòng và thiết bị.</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="group_lanh_dao_duyet_phong" model="res.groups">
+            <field name="name">Lãnh đạo (Duyệt Hội trường lớn)</field>
+            <field name="category_id" ref="module_category_quan_ly_phong_hop"/>
+        </record>
+    </data>
+</odoo>

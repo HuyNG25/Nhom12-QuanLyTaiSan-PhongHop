@@ -1,0 +1,97 @@
+<odoo>
+    <data noupdate="0">
+        <!-- Đơn Vị (Phòng Ban) -->
+        <record id="dv_it" model="don_vi">
+            <field name="ma_don_vi">DV001</field>
+            <field name="ten_don_vi">Phòng Kỹ Thuật (IT)</field>
+        </record>
+        <record id="dv_sales" model="don_vi">
+            <field name="ma_don_vi">DV002</field>
+            <field name="ten_don_vi">Phòng Kinh Doanh</field>
+        </record>
+        <record id="dv_hr" model="don_vi">
+            <field name="ma_don_vi">DV003</field>
+            <field name="ten_don_vi">Phòng Hành Chính Nhân Sự</field>
+        </record>
+
+        <!-- Chức Vụ -->
+        <record id="cv_truong_phong" model="chuc_vu">
+            <field name="ma_chuc_vu">CV001</field>
+            <field name="ten_chuc_vu">Trưởng phòng</field>
+        </record>
+        <record id="cv_nhan_vien" model="chuc_vu">
+            <field name="ma_chuc_vu">CV002</field>
+            <field name="ten_chuc_vu">Nhân viên</field>
+        </record>
+        <record id="cv_thuc_tap" model="chuc_vu">
+            <field name="ma_chuc_vu">CV003</field>
+            <field name="ten_chuc_vu">Thực tập sinh</field>
+        </record>
+
+        <!-- Nhân Viên -->
+        <record id="nv_nguyen_van_a" model="nhan_vien">
+            <field name="ho_ten_dem">Nguyễn Văn</field>
+            <field name="ten">A</field>
+            <field name="ma_dinh_danh">nva</field>
+            <field name="ngay_sinh">1990-01-01</field>
+            <field name="email">a.nguyen@example.com</field>
+            <field name="so_dien_thoai">0901234567</field>
+        </record>
+        
+        <record id="nv_tran_thi_b" model="nhan_vien">
+            <field name="ho_ten_dem">Trần Thị</field>
+            <field name="ten">B</field>
+            <field name="ma_dinh_danh">ttb</field>
+            <field name="ngay_sinh">1995-05-15</field>
+            <field name="email">b.tran@example.com</field>
+            <field name="so_dien_thoai">0909876543</field>
+        </record>
+
+        <record id="nv_le_van_c" model="nhan_vien">
+            <field name="ho_ten_dem">Lê Văn</field>
+            <field name="ten">C</field>
+            <field name="ma_dinh_danh">lvc</field>
+            <field name="ngay_sinh">1988-11-20</field>
+            <field name="email">c.le@example.com</field>
+            <field name="so_dien_thoai">0912345678</field>
+        </record>
+
+        <record id="nv_pham_van_d" model="nhan_vien">
+            <field name="ho_ten_dem">Phạm Văn</field>
+            <field name="ten">D</field>
+            <field name="ma_dinh_danh">pvd</field>
+            <field name="ngay_sinh">2002-09-02</field>
+            <field name="email">d.pham@example.com</field>
+            <field name="so_dien_thoai">0987654321</field>
+        </record>
+
+        <!-- Lịch Sử Công Tác (Gán chức vụ & phòng ban) -->
+        <record id="lsct_a" model="lich_su_cong_tac">
+            <field name="nhan_vien_id" ref="nv_nguyen_van_a"/>
+            <field name="don_vi_id" ref="dv_it"/>
+            <field name="chuc_vu_id" ref="cv_truong_phong"/>
+            <field name="loai_chuc_vu">Chính</field>
+        </record>
+
+        <record id="lsct_b" model="lich_su_cong_tac">
+            <field name="nhan_vien_id" ref="nv_tran_thi_b"/>
+            <field name="don_vi_id" ref="dv_sales"/>
+            <field name="chuc_vu_id" ref="cv_nhan_vien"/>
+            <field name="loai_chuc_vu">Chính</field>
+        </record>
+
+        <record id="lsct_c" model="lich_su_cong_tac">
+            <field name="nhan_vien_id" ref="nv_le_van_c"/>
+            <field name="don_vi_id" ref="dv_hr"/>
+            <field name="chuc_vu_id" ref="cv_nhan_vien"/>
+            <field name="loai_chuc_vu">Chính</field>
+        </record>
+
+        <record id="lsct_d" model="lich_su_cong_tac">
+            <field name="nhan_vien_id" ref="nv_pham_van_d"/>
+            <field name="don_vi_id" ref="dv_it"/>
+            <field name="chuc_vu_id" ref="cv_thuc_tap"/>
+            <field name="loai_chuc_vu">Chính</field>
+        </record>
+    </data>
+</odoo>

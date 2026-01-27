@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="view_dich_vu_di_kem_tree" model="ir.ui.view">
+            <field name="name">dich_vu_di_kem_tree</field>
+            <field name="model">dich_vu_di_kem</field>
+            <field name="arch" type="xml">
+                <tree string="Dịch vụ đi kèm" editable="bottom">
+                    <field name="name"/>
+                    <field name="don_gia"/>
+                    <field name="mo_ta"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_dich_vu_di_kem" model="ir.actions.act_window">
+            <field name="name">Dịch vụ đi kèm</field>
+            <field name="res_model">dich_vu_di_kem</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>

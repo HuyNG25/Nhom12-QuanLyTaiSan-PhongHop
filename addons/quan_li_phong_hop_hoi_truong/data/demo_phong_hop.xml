@@ -1,0 +1,53 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Phòng họp -->
+        <record id="phong_hop_lon" model="quan_ly_phong_hop">
+            <field name="name">Phòng Hội Trường Lớn</field>
+            <field name="suc_chua">100</field>
+            <field name="loai_phong">hoi_truong_lon</field>
+        </record>
+
+        <record id="phong_hop_nho_1" model="quan_ly_phong_hop">
+            <field name="name">Phòng Họp 101 (Nhỏ)</field>
+            <field name="suc_chua">10</field>
+            <field name="loai_phong">phong_hop_nho</field>
+        </record>
+
+        <record id="phong_hop_vip" model="quan_ly_phong_hop">
+            <field name="name">Phòng VIP</field>
+            <field name="suc_chua">20</field>
+            <field name="loai_phong">phong_hop_nho</field>
+        </record>
+
+        <!-- Dịch vụ đi kèm -->
+        <record id="dv_tra_nuoc" model="dich_vu_di_kem">
+            <field name="name">Trà &amp; Nước suối</field>
+            <field name="don_gia">50000</field>
+        </record>
+
+        <record id="dv_don_dep" model="dich_vu_di_kem">
+            <field name="name">Dọn dẹp sau họp</field>
+            <field name="don_gia">100000</field>
+        </record>
+
+        <record id="dv_am_thanh" model="dich_vu_di_kem">
+            <field name="name">Thuê dàn âm thanh sự kiện</field>
+            <field name="don_gia">500000</field>
+        </record>
+
+        <!-- Thiết bị phòng họp (Cố định) -->
+        <record id="tb_may_chieu_vip" model="thiet_bi">
+            <field name="name">Máy chiếu 4K (Cố định)</field>
+            <field name="loai_thiet_bi">may_chieu</field>
+            <field name="phong_id" ref="phong_hop_vip"/>
+            <field name="trang_thai">san_sang</field>
+        </record>
+
+        <record id="tb_loa_hoi_truong" model="thiet_bi">
+            <field name="name">Hệ thống Loa Hội trường</field>
+            <field name="loai_thiet_bi">loa</field>
+            <field name="phong_id" ref="phong_hop_lon"/>
+            <field name="trang_thai">san_sang</field>
+        </record>
+    </data>
+</odoo>

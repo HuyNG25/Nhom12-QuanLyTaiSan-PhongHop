@@ -1,0 +1,20 @@
+{
+    'name': 'Quản Lý Văn Bản',
+    'version': '1.0',
+    'summary': 'Module quản lý văn bản đến và đi',
+    'sequence': 10,
+    'description': """Module quản lý văn bản nội bộ""",
+    'category': 'Productivity',
+    'author': 'Your Name',
+    'depends': ['base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/loai_van_ban_views.xml',
+        'views/van_ban_den_views.xml',
+        'views/van_ban_di_views.xml',
+        'views/menu.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}

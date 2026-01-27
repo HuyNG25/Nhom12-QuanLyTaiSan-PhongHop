@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_quanly_loaivanban,access_quanly_loaivanban,model_quanly_loaivanban,base.group_user,1,1,1,1
+access_quanly_vanbanden,access_quanly_vanbanden,model_quanly_vanbanden,base.group_user,1,1,1,1
+access_quanly_vanbandi,access_quanly_vanbandi,model_quanly_vanbandi,base.group_user,1,1,1,1

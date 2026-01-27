@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_nhan_vien_form_inherit_asset" model="ir.ui.view">
+            <field name="name">nhan.vien.form.inherit.asset</field>
+            <field name="model">nhan_vien</field>
+            <field name="inherit_id" ref="nhan_su.view_nhan_vien_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Tài sản đang giữ">
+                        <field name="tai_san_ids">
+                            <tree>
+                                <field name="ma_tai_san"/>
+                                <field name="ten_tai_san"/>
+                                <field name="trang_thai" widget="badge" 
+                                       decoration-info="trang_thai=='Muon'"
+                                       decoration-danger="trang_thai=='Hong'"
+                                       decoration-muted="trang_thai=='ThanhLy'"
+                                       decoration-success="trang_thai=='LuuTru'"/>
+                                <field name="ngay_mua"/>
+                                <field name="gia_tri_hien_tai"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
