@@ -5,7 +5,7 @@
     </a>
 </h2>
 <h2 align="center">
-    ERP: HỆ THỐNG QUẢN LÝ NHÂN SỰ – KHÁCH HÀNG – VĂN BẢN
+    ERP: HỆ THỐNG QUẢN LÝ TÀI SẢN CHUNG VÀ PHÒNG HỌP
 </h2>
 <div align="center">
     <p align="center">
