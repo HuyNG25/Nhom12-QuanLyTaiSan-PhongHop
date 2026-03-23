@@ -82,7 +82,5 @@ Tài khoản mặc định (nếu dùng demo data): `admin` / `admin`
 ## 🤝 Đóng góp
 Dự án được phát triển dựa trên nền tảng Business Internship của Khoa CNTT - Đại học Đại Nam.
 =======
-# office-resource-manager
 Học Phần: Hội nhập và quản trị phần mềm doanh - Đề Tài 6
 
-# Nhom12-QuanLyTaiSan-PhongHop
